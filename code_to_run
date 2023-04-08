@@ -11,8 +11,8 @@ cd ..
 
 ## Perform de novo assembly of reads using MEGAHIT assembler
 
-while read p; do megahit -1 HL1-8_trimmed/"$p"_R1_paired.fastq.gz -2 HL1-8_trimmed/"$p"_R2_paired.fastq.gz -o /megahit_output/"$p"; done < samplenames
-
+while read p; do mkdir megahit_output_"$p"; done < samplenames
+while read p; do megahit -1 HL1-8_trimmed/"$p"_R1_paired.fastq.gz -2 HL1-8_trimmed/"$p"_R2_paired.fastq.gz -o /megahit_output_"$p"; done < samplenames
 
 
 
