@@ -4,11 +4,5 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - fastqc
-  - trimmomatic
-  - kraken2
-  - kraken-biom
-  - numpy
-  - biom-format
+  - megahit
   - parallel
-  - multiqc
