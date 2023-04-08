@@ -4,7 +4,9 @@
 ## Create file with list of all sample filenames - in order to tell the programs which samples to run, one at a time (NOT parallel)
 ## Doing it this way instead to save on memory, since the assembly is VERY memory intensive
 
-ls HL1-8_trimmed/*.fastq.gz | sed 's/_R1.*//' | sed 's/_R2.*//' | uniq > samplenames
+cd HL1-8_trimmed
+ls *.fastq.gz | sed 's/_R1.*//' | sed 's/_R2.*//' | uniq > ~/samplenames
+cd ..
 
 
 ## Perform de novo assembly of reads using MEGAHIT assembler
