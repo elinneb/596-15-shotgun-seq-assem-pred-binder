@@ -1,20 +1,20 @@
 #!/bin/bash
 
-mkdir HL1-8
+mkdir HL1-8_trimmed
 
-curl -L  -o HL1-8/HL1_R1_paired.fastq.gz
-curl -L  -o HL1-8/HL1_R2_paired.fastq.gz
-curl -L  -o HL1-8/HL2_R1_paired.fastq.gz
-curl -L  -o HL1-8/HL2_R2_paired.fastq.gz
-curl -L  -o HL1-8/HL3_R1_paired.fastq.gz
-curl -L  -o HL1-8/HL3_R2_paired.fastq.gz
-curl -L  -o HL1-8/HL4_R1_paired.fastq.gz
-curl -L  -o HL1-8/HL4_R2_paired.fastq.gz
-curl -L  -o HL1-8/HL5_R1_paired.fastq.gz
-curl -L  -o HL1-8/HL5_R2_paired.fastq.gz
-curl -L  -o HL1-8/HL6_R1_paired.fastq.gz
-curl -L  -o HL1-8/HL6_R2_paired.fastq.gz
-curl -L  -o HL1-8/HL7_R1_paired.fastq.gz
-curl -L  -o HL1-8/HL7_R2_paired.fastq.gz
-curl -L  -o HL1-8/HL8_R1_paired.fastq.gz
-curl -L  -o HL1-8/HL8_R2_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074535 -o HL1-8_trimmed/HL1_R1_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074532 -o HL1-8_trimmed/HL1_R2_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074529 -o HL1-8_trimmed/HL2_R1_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074526 -o HL1-8_trimmed/HL2_R2_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074523 -o HL1-8_trimmed/HL3_R1_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074520 -o HL1-8_trimmed/HL3_R2_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074517 -o HL1-8_trimmed/HL4_R1_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074514 -o HL1-8_trimmed/HL4_R2_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074511 -o HL1-8_trimmed/HL5_R1_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074508 -o HL1-8_trimmed/HL5_R2_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074505 -o HL1-8_trimmed/HL6_R1_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074502 -o HL1-8_trimmed/HL6_R2_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074496 -o HL1-8_trimmed/HL7_R1_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074499 -o HL1-8_trimmed/HL7_R2_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074493 -o HL1-8_trimmed/HL8_R1_paired.fastq.gz
+curl -L https://figshare.com/ndownloader/files/40074490 -o HL1-8_trimmed/HL8_R2_paired.fastq.gz
