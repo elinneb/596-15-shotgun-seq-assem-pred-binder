@@ -1,38 +1,20 @@
-## Run a quality control check on ALL the raw fastq files in the folder "HL1-8"
-
-ls HL1-8/*.fastq.gz | parallel --gnu "fastqc {}"
+## Import trimmed, filtered reads from the taxonomy analysis workflow (automatically done)
 
 
+## Create file with list of all sample filenames - in order to tell the programs which samples to run, one at a time (NOT parallel)
+## Doing it this way instead to save on memory, since the assembly is VERY memory intensive
 
-## Trim/filter the raw fastq files, remove adapter sequences, and output paired and unpaired reads separately
-
-parallel --gnu "trimmomatic PE {1} {2} {1/.}_paired.fastq.gz {1/.}_unpaired.fastq.gz {2/.}_paired.fastq.gz {2/.}_unpaired.fastq.gz ILLUMINACLIP:AdapterSeqs-PE.fa:2:30:10:8:true SLIDINGWINDOW:4:20" ::: HL1-8/*_R1.fastq.gz :::+ HL1-8/*_R2.fastq.gz
+ls HL1-8_trimmed/*.fastq.gz | sed 's/_R1.*//' | sed 's/_R2.*//' | uniq > samplenames
 
 
+## Perform de novo assembly of reads using MEGAHIT assembler
 
-## Re-run a quality control check on ALL the PAIRED, FILTERED fastq files
-
-ls *_paired.fastq.gz | parallel --gnu "fastqc {}"
+while read p; do megahit -1 HL1-8_trimmed/"$p"_R1_paired.fastq.gz -2 HL1-8_trimmed/"$p"_R2_paired.fastq.gz -o /megahit_output/"$p"; done < samplenames
 
 
 
-## Perform taxonomic classification of filtered reads against the 16S rRNA database, using the classifier program "Kraken2"
-
-parallel --gnu "kraken2 --paired --db SILVA_DB {1} {2} --report {1/.}.txt" ::: *_R1.fastq_paired.fastq.gz :::+ *_R2.fastq_paired.fastq.gz
 
 
-
-## Merge Kraken2 output files into a single "biom" table
-
-kraken-biom HL1_R1.fastq_paired.fastq.txt HL2_R1.fastq_paired.fastq.txt HL3_R1.fastq_paired.fastq.txt HL4_R1.fastq_paired.fastq.txt HL5_R1.fastq_paired.fastq.txt HL6_R1.fastq_paired.fastq.txt HL7_R1.fastq_paired.fastq.txt HL8_R1.fastq_paired.fastq.txt -o merged_table.biom
-
-biom summarize-table -i merged_table.biom -o merged_table_summary.txt
-
-
-
-## Biom tables are hard to read, so convert biom table to "OTU" table, which has abundances of each consensus lineage
-
-biom convert -i merged_table.biom -o merged_OTU_table.txt --to-tsv --header-key taxonomy --output-metadata-id "ConsensusLineage"
 
 
 
