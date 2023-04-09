@@ -15,8 +15,7 @@ while read p; do megahit -1 HL1-8_trimmed/"$p"_R1_paired.fastq.gz -2 HL1-8_trimm
 
 ## Create a new folder; copy assembly outputs into the new folder
 mkdir final_contigs
-while read p; do cp ~/megahit_output_"$p"/final.contigs.fa ~/final_contigs/"$p"_final.contigs.fa
-
+while read p; do cp ~/megahit_output_"$p"/final.contigs.fa ~/final_contigs/"$p"_final.contigs.fa; done < samplenames
 
 
 
