@@ -19,7 +19,7 @@ while read p; do cp ~/megahit_output_"$p"/final.contigs.fa ~/final_contigs/"$p"_
 
 
 ## Run MetaQUAST on the assemblies
-python /srv/conda/envs/notebook/bin/metaquast HL_final_contigs/*.fa
+python /srv/conda/envs/notebook/bin/metaquast --gene-finding HL_final_contigs/*.fa
 
 
 
