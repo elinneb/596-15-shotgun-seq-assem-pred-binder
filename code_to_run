@@ -19,8 +19,7 @@ while read p; do cp ~/megahit_output_"$p"/final.contigs.fa ~/final_contigs/"$p"_
 
 
 ## Run MetaQUAST on the assemblies
-cd HL_final_contigs
-python /srv/conda/envs/notebook/bin/metaquast HL1_final.contigs.fa HL2_final.contigs.fa HL3_final.contigs.fa HL4_final.contigs.fa HL5_final.contigs.fa HL6_final.contigs.fa HL7_final.contigs.fa HL8_final.contigs.fa
+python /srv/conda/envs/notebook/bin/metaquast HL_final_contigs/*.fa
 
 
 
