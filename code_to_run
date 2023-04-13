@@ -18,8 +18,6 @@ mkdir HL_final_contigs
 while read p; do cp ~/megahit_output_"$p"/final.contigs.fa ~/final_contigs/"$p"_final.contigs.fa; done < samplenames
 
 
-## Run MetaQUAST on the assemblies
-python /srv/conda/envs/notebook/bin/metaquast --gene-finding --fast HL_final_contigs/*.fa
 
 
 
