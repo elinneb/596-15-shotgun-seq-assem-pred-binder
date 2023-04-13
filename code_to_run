@@ -1,21 +1,15 @@
 ## Import trimmed, filtered reads from the taxonomy analysis workflow (automatically done)
 
 
-## Create file with list of all sample filenames - in order to tell the programs which samples to run, one at a time (NOT parallel)
-## Doing it this way instead to save on memory, since the assembly is VERY memory intensive
-
-cd HL1-8_trimmed
-ls *.fastq.gz | sed 's/_R1.*//' | sed 's/_R2.*//' | uniq > ~/samplenames
-cd ..
-
-
 ## Perform de novo assembly of reads using MEGAHIT assembler
+## Could perform assembly one at a time, but it took over 3 hours on 8 samples, so we'll do 1 here
 
-while read p; do megahit -1 HL1-8_trimmed/"$p"_R1_paired.fastq.gz -2 HL1-8_trimmed/"$p"_R2_paired.fastq.gz -o ~/megahit_output_"$p"; done < samplenames
+megahit -1 HL1-8_trimmed/HL1_R1_paired.fastq.gz -2 HL1-8_trimmed/HL1_R2_paired.fastq.gz -o ~/megahit_output_HL1
 
-## Create a new folder; copy assembly outputs into the new folder
-mkdir HL_final_contigs
-while read p; do cp ~/megahit_output_"$p"/final.contigs.fa ~/final_contigs/"$p"_final.contigs.fa; done < samplenames
+
+## Copy assembly output into folder with other sample contigs files (assembly on them was pre-done)
+
+cp ~/megahit_output_HL1/final.contigs.fa ~/final_contigs/HL1_final.contigs.fa; done < samplenames
 
 
 
