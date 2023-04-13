@@ -3,7 +3,9 @@ channels:
   - conda-forge
   - bioconda
   - defaults
+  - astrobiomike
 dependencies:
   - megahit
   - prokka
   - parallel
+  - bit
