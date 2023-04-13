@@ -5,6 +5,5 @@ channels:
   - defaults
 dependencies:
   - megahit
-  - bit
   - prokka
   - parallel
