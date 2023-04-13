@@ -9,7 +9,7 @@ megahit -1 HL1-8_trimmed/HL1_R1_paired.fastq.gz -2 HL1-8_trimmed/HL1_R2_paired.f
 
 ## Copy assembly output into folder with other sample contigs files (assembly on them was pre-done)
 
-cp ~/megahit_output_HL1/final.contigs.fa ~/final_contigs/HL1_final.contigs.fa; done < samplenames
+cp ~/megahit_output_HL1/final.contigs.fa ~/HL_final_contigs/HL1_final.contigs.fa
 
 
 
