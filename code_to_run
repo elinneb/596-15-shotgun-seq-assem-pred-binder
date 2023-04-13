@@ -12,6 +12,18 @@ megahit -1 HL1-8_trimmed/HL1_R1_paired.fastq.gz -2 HL1-8_trimmed/HL1_R2_paired.f
 cp ~/megahit_output_HL1/final.contigs.fa ~/HL_final_contigs/HL1_final.contigs.fa
 
 
+## Run prodigal on assemblies
+
+prodigal -i ~/HL_final_contigs/HL1_final.contigs.fa -o HL1_coords.gbk -a HL1_proteins.faa -p meta
+prodigal -i ~/HL_final_contigs/HL2_final.contigs.fa -o HL2_coords.gbk -a HL2_proteins.faa -p meta
+prodigal -i ~/HL_final_contigs/HL3_final.contigs.fa -o HL3_coords.gbk -a HL3_proteins.faa -p meta
+prodigal -i ~/HL_final_contigs/HL4_final.contigs.fa -o HL4_coords.gbk -a HL4_proteins.faa -p meta
+prodigal -i ~/HL_final_contigs/HL5_final.contigs.fa -o HL5_coords.gbk -a HL5_proteins.faa -p meta
+prodigal -i ~/HL_final_contigs/HL6_final.contigs.fa -o HL6_coords.gbk -a HL6_proteins.faa -p meta
+prodigal -i ~/HL_final_contigs/HL7_final.contigs.fa -o HL7_coords.gbk -a HL7_proteins.faa -p meta
+prodigal -i ~/HL_final_contigs/HL8_final.contigs.fa -o HL8_coords.gbk -a HL8_proteins.faa -p meta
+
+
 
 
 
